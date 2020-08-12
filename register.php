@@ -14,24 +14,75 @@
 </head>
 
 <body>
-    <div style="margin-top: 100px;">
-        <div class="card m-auto" style="width: 400px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="https://www.princetoncarbon.com/wp-content/uploads/2017/05/Logo-P.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                Praker.in
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top: 50px;margin-bottom: 50px;">
+        <div class="card m-auto" style="width: 500px;">
             <div class="card-body">
-                <form>
+                <div id="alert">
+                    <?php if (isset($_GET['e']) and $_GET['e'] == 'kartu') : ?>
+                        <div class="alert alert-danger" role="alert">
+                            kartu pelajar kamu sudah terdaftar dengan akun lain.
+                        </div>
+                    <?php endif; ?>
+                    <?php if (isset($_GET['e']) and $_GET['e']  == 'email') : ?>
+                        <div class="alert alert-danger" role="alert">
+                            email sudah pernah digunakan.
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <form action="aksi.php?p=register" method="POST">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">pastikan alamat email sudah terdaftar.</small>
+                        <label>Nama Lengkap</label>
+                        <input type="text" required name="nama-lengkap" class="form-control">
+                        <small class="form-text text-muted">nama harus sesuai dengan yang ada di kartu keluarga</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label>Kartu Pelajar</label>
+                        <input type="text" required name="kartu-pelajar" class="form-control">
+                        <small class="form-text text-muted">isikan id yang tertera di kartu pelajarmu</small>
                     </div>
-                    <div>
-                        <a href="register.php">
-                            <span class="text-muted align-middle">belum punya akun? daftar sekarang</span>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Email</label>
+                            <input type="email" required name="email" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Password</label>
+                            <input type="password" required name="pass" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Asal Sekolah</label>
+                        <input type="text" required name="asal-sekolah" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" required name="alamat" rows="3"></textarea>
+                        <small class="form-text text-muted">alamat rumah mu yang sekarang ditinggali</small>
+                    </div>
+                    <div class="pt-3">
+                        <a href="login.php" style="text-decoration: none;">
+                            <button type="button" class="btn btn-outline-dark">Login</button>
                         </a>
-                        <button type="submit" class="btn btn-primary float-right">Login</button>
+                        <button type="submit" class="btn btn-primary float-right">Daftar Sekarang</button>
                     </div>
                 </form>
             </div>

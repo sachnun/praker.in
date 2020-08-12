@@ -14,22 +14,48 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img src="https://www.princetoncarbon.com/wp-content/uploads/2017/05/Logo-P.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                Praker.in
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div style="margin-top: 100px;">
         <div class="card m-auto" style="width: 400px;">
             <div class="card-body">
+                <?php if (isset($_GET['e']) == 'salah') : ?>
+                    <div id="alert">
+                        <div class="alert alert-danger" role="alert">
+                            email atau password salah.
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <form action="aksi.php?p=login" method="POST">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted">pastikan alamat email sudah terdaftar.</small>
+                        <label>Email</label>
+                        <input type="email" required name="email" class="form-control">
+                        <small class="form-text text-muted">pastikan alamat email sudah terdaftar</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
+                        <label>Password</label>
+                        <input type="password" required name="pass" class="form-control">
                     </div>
-                    <div>
-                        <a href="register.php">
-                            <span class="text-muted align-middle">belum punya akun? daftar sekarang</span>
+                    <div class="pt-3">
+                        <a href="register.php" style="text-decoration: none;">
+                            <button type="button" class="btn btn-outline-dark">Buat Akun</button>
                         </a>
                         <button type="submit" class="btn btn-primary float-right">Login</button>
                     </div>
