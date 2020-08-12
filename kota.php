@@ -67,11 +67,6 @@
         </div>
     </div>
 
-    <style>
-        a:hover {
-            text-decoration: none;
-        }
-    </style>
     <div class="container" id="kota">
         <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == 1) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -117,7 +112,7 @@
                         <td>
                             <?php if (empty($_SESSION['login']) or $_SESSION['akses'] != 1) : ?>
                                 <div>
-                                    <a href="perusahaan.php?k=<?= $data['id'] ?>">
+                                    <a href="perusahaan.php?k=<?= $data['id'] ?>" style="text-decoration: none;">
                                         <button type="button" class="btn btn-outline-dark">Pilih Perusahaan</button>
                                     </a>
                                     <a href="instansi.php?k=<?= $data['id'] ?>">
@@ -127,7 +122,9 @@
                             <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
                                 <!-- Admin -->
                                 <div style="min-width: 150px;">
-                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <a href="edit/kota.php?id=<?= $data['id'] ?>" style="text-decoration: none;">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                    </a>
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </div>
                             <?php endif; ?>

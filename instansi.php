@@ -122,8 +122,8 @@
                                 <button type="button" class="btn btn-outline-dark btn-sm">Lihat Map</button>
                             </a>
                         </td>
-                        <td>Komputerisasi</td>
-                        <td>343 orang</td>
+                        <td><?= $data['bagian'] ?></td>
+                        <td><?= $data['peserta'] ?> orang</td>
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>
@@ -132,7 +132,9 @@
                             <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
                                 <!-- Admin -->
                                 <div>
-                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <a href="edit/instansi.php?id=<?= $data['id'] ?>" style="text-decoration: none;">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                    </a>
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </div>
                             <?php endif; ?>

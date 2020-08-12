@@ -67,11 +67,6 @@
         </div>
     </div>
 
-    <style>
-        a {
-            text-decoration: none
-        }
-    </style>
     <div class="container">
         <?php if (empty($_SESSION['login'])) : ?>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -136,7 +131,9 @@
                             <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
                                 <!-- Admin -->
                                 <div style="min-width: 150px;">
-                                    <button type="button" class="btn btn-primary">Edit</button>
+                                    <a href="edit/perusahaan.php?id=<?= $data['id'] ?>" style="text-decoration: none;">
+                                        <button type="button" class="btn btn-primary">Edit</button>
+                                    </a>
                                     <button type="button" class="btn btn-danger">Hapus</button>
                                 </div>
                             <?php endif; ?>
