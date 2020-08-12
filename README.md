@@ -2,12 +2,19 @@
 
 - homepage
 - login page
+- register page
 - akses admin
 - akses pengguna
+- pesan alert
+- badge admin
 - opsi kota
 	- jumlah perusahaan 
 	- jumlah instansi
 	- jumlah peserta
+- opsti tambahkan data
+	- kota
+	- perusahaan
+	- instansi
 - opsi perusahaan
 - opsi instansi
 - link ke google map
@@ -16,11 +23,6 @@
 
 ### Fitur yang akan datang
 
-- register page
-- opsti tambahkan data
-	- kota
-	- perusahaan
-	- instansi
 - opsi hapus
 	- kota
 	- perusahaan
@@ -35,3 +37,5 @@
 	- submit
 	- batalkan
 - printable card
+- mengubah kata sandi
+- lupa kata sandi
