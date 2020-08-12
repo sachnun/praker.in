@@ -44,10 +44,15 @@
     </nav>
 
     <?php $data = $conn->query("SELECT * FROM perusahaan WHERE id = {$_GET['id']}")->fetch_assoc(); ?>
-    <div class="container pt-4">
+    <div class="container pt-4 mb-5">
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Edit Perusahaan</h1>
+                <?php if ($data['peserta'] > 0) : ?>
+                    <div class="alert alert-warning" role="alert">
+                        Sudah terdapat peserta yang bergabung, harap berhati-hati dalam mengubahnya.
+                    </div>
+                <?php endif; ?>
                 <form action="">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
