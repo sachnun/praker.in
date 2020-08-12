@@ -38,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="instansi.php">Instansi</a>
                     </li>
-                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] = true) : ?>
+                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == true) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="pilihanku.php">Pilihanku</a>
                         </li>
@@ -104,7 +104,7 @@
                 </button>
             </div>
         <?php endif; ?>
-        <?php if (isset($_SESSION['login']) and $_SESSION['akses'] = 1) : ?>
+        <?php if (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
             <!-- Admin -->
             <button type="button" class="btn btn-primary my-3">+ Tambah Kota</button>
         <?php endif; ?>
@@ -142,11 +142,11 @@
                         <td><?= $data['bagian'] ?></td>
                         <td><?= $data['peserta'] ?> orang</td>
                         <td>
-                            <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] = false) : ?>
+                            <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>
                                     <button type="button" class="btn btn-success">Gabung yuk</button>
                                 </div>
-                            <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] = 1) : ?>
+                            <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
                                 <!-- Admin -->
                                 <div style="min-width: 150px;">
                                     <button type="button" class="btn btn-primary">Edit</button>

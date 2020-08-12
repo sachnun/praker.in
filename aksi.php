@@ -17,8 +17,24 @@ function login($email, $password)
         header('Location: login.php?e=salah');
     }
 }
-function register()
+function register($nama, $kartu, $email, $pass, $sekolah, $alamat)
 {
+    global $conn;
+
+    if ($conn->query("SELECT id FROM akun WHERE email = '{$email}'")->num_rows > 0) {
+        header('Location: register.php?e=email');
+    } else if ($conn->query("SELECT id FROM akun WHERE kartu_pelajar = '{$kartu}'")->num_rows > 0) {
+        header('Location: register.php?e=kartu');
+    } else {
+        $sql = "INSERT INTO akun (nama, email, pass, sekolah, kartu_pelajar, alamat)
+        VALUES ('{$nama}', '{$email}', '{$pass}', '{$sekolah}', '{$kartu}', '{$alamat}')";
+
+        if ($conn->query($sql) === true) {
+            login($email, $pass);
+        } else {
+            die('terjadi masalah pada sistem saat mendaftar, coba lagi nanti ya.');
+        }
+    }
 }
 function logout()
 {
@@ -30,6 +46,15 @@ function logout()
 switch ($_GET['p']) {
     case 'login':
         login($_POST['email'], $_POST['pass']);
+        break;
+    case 'register':
+        $nama = $_POST['nama-lengkap'];
+        $kartu = $_POST['kartu-pelajar'];
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
+        $sekolah = $_POST['asal-sekolah'];
+        $alamat = $_POST['alamat'];
+        register($nama, $kartu, $email, $pass, $sekolah, $alamat);
         break;
     case 'logout':
         logout();

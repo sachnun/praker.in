@@ -38,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="instansi.php">Instansi</a>
                     </li>
-                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] = true) : ?>
+                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == true) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="pilihanku.php">Pilihanku</a>
                         </li>
