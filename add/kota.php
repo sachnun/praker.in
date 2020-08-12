@@ -50,7 +50,7 @@
                 <form action="">
                     <div class="form-group">
                         <label>Nama Kota</label>
-                        <input type="email" class="form-control" placeholder="contoh, Kota Serang">
+                        <input type="text" class="form-control" placeholder="contoh, Kota Serang">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <a href="../kota.php" style="text-decoration: none;">

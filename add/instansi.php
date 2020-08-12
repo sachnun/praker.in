@@ -56,9 +56,9 @@
                     <div class="form-group">
                         <label>Jenis</label>
                         <select class="form-control">
-                            <option>Sekolah</option>
-                            <option>Universitas</option>
-                            <option>Lainnya</option>
+                            <option value="Sekolah">Sekolah</option>
+                            <option value="Universitas">Universitas</option>
+                            <option value="Lainnya">Lainnya</option>
                         </select>
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>

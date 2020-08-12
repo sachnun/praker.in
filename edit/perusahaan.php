@@ -56,7 +56,7 @@
                 <form action="">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
-                        <input type="email" class="form-control" value="<?= $data['nama_perusahaan'] ?>">
+                        <input type="text" class="form-control" value="<?= $data['nama_perusahaan'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="email" class="form-control" value="<?= $data['bagian'] ?>">
+                        <input type="text" class="form-control" value="<?= $data['bagian'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>

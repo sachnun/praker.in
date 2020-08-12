@@ -50,7 +50,7 @@
                 <form action="">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
-                        <input type="email" class="form-control" placeholder="contoh, PT Indah Kiat Pulp & Paper">
+                        <input type="text" class="form-control" placeholder="contoh, PT Indah Kiat Pulp & Paper">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="email" class="form-control" placeholder="contoh, IT Komputer">
+                        <input type="text" class="form-control" placeholder="contoh, IT Komputer">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
