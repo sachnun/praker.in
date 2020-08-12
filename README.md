@@ -7,36 +7,34 @@
 - akses admin
 - akses pengguna
 - opsi kota
-	- jumlah perusahaan 
-	- jumlah instansi
-	- jumlah peserta
+  &#9;- jumlah perusahaan
+  &#9;- jumlah instansi
+  &#9;- jumlah peserta
 - opsi perusahaan
 - opsi instansi
 - link ke google map
 - logout
 
-
 ### Fitur yang akan datang
 
 - register page
 - opsti tambahkan data
-	- kota
-	- perusahaan
-	- instansi
+  &#9;- kota
+  &#9;- perusahaan
+  &#9;- instansi
 - opsi hapus
-	- kota
-	- perusahaan
-	- instansi
+  &#9;- kota
+  &#9;- perusahaan
+  &#9;- instansi
 - opsi edit
-	- kota
-	- perusahaan
-	- instansi
+  &#9;- kota
+  &#9;- perusahaan
+  &#9;- instansi
 - page pilihanku
-	- ubah data
-	- ganti foto
-	- submit
-	- batalkan
+  &#9;- ubah data
+  &#9;- ganti foto
+  &#9;- submit
+  &#9;- batalkan
 - printable card
 
 <b>beri saran fitur apa yang menurutmu perlu ada : (link segera)</b>
-
