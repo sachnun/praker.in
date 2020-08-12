@@ -55,7 +55,7 @@
                             atau
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">
+                            <a class="nav-link" href="register.php">
                                 Daftar
                             </a>
                         </li>

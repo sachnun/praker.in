@@ -55,7 +55,7 @@
                             atau
                         </span>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">
+                            <a class="nav-link" href="register.php">
                                 Daftar
                             </a>
                         </li>
@@ -91,6 +91,14 @@
     </div>
 
     <div class="container" id="instansi">
+        <?php if (empty($_SESSION['login'])) : ?>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Kamu perlu <a href="login.php" class="alert-link">Login</a> atau <a href="register.php" class="alert-link">Daftar</a> untuk bisa memilihnya.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
         <?php if (isset($_SESSION['login']) and $_SESSION['akses'] = 1) : ?>
             <!-- Admin -->
             <button type="button" class="btn btn-primary my-3">+ Tambah Kota</button>
