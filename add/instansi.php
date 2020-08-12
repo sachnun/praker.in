@@ -43,7 +43,7 @@
         </div>
     </nav>
 
-    <div class="container pt-4">
+    <div class="container pt-4 mb-5">
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Tambahkan Instansi</h1>
@@ -63,9 +63,18 @@
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
-                        <label>Alamat</label>
+                        <label>Lokasi</label>
                         <textarea class="form-control" required name="alamat" rows="3" placeholder="contoh, Jl. KH. Amin Jasuta No.15C, Lontarbaru, Kec. Serang, Kota Serang, Banten 42115"></textarea>
-                        <small class="form-text text-muted">alamat lengkap tempat instansi untuk prakerin</small>
+                        <small class="form-text text-muted">lokasi instansi tempat untuk prakerin</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Kota</label>
+                        <select class="form-control">
+                            <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
+                                <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <small class="form-text text-muted">berada dikota mana instansi ini</small>
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
