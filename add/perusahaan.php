@@ -27,10 +27,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <span class="navbar-text">
-                        Hi, <?= $_SESSION['nama'] ?>.
+                        Hi,
+                        <?php if ($_SESSION['akses'] == 1) : ?>
+                            <span class="badge badge-secondary">Admin</span>
+                        <?php endif; ?>
+                        <?= $_SESSION['nama'] ?>.
                     </span>
                     <li class="nav-item">
-                        <a class="nav-link" href="../aksi.php?p=logout">
+                        <a class="nav-link" href="aksi.php?p=logout">
                             Logout
                         </a>
                     </li>

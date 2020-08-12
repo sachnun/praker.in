@@ -78,7 +78,7 @@
                         <textarea class="form-control" required name="alamat" rows="3"></textarea>
                         <small class="form-text text-muted">alamat rumah mu yang sekarang ditinggali</small>
                     </div>
-                    <div class="pt-3">
+                    <div class="pt-2">
                         <a href="login.php" style="text-decoration: none;">
                             <button type="button" class="btn btn-outline-dark">Login</button>
                         </a>

@@ -45,30 +45,7 @@
                     <?php endif; ?>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <?php if (empty($_SESSION['login'])) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">
-                                Login
-                            </a>
-                        </li>
-                        <span class="navbar-text">
-                            atau
-                        </span>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">
-                                Daftar
-                            </a>
-                        </li>
-                    <?php else : ?>
-                        <span class="navbar-text">
-                            Hi, <?= $_SESSION['nama'] ?>.
-                        </span>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aksi.php?p=logout">
-                                Logout
-                            </a>
-                        </li>
-                    <?php endif; ?>
+                    <?php include('navbar-user.php') ?>
                 </ul>
             </div>
         </div>
@@ -99,6 +76,14 @@
         <?php if (empty($_SESSION['login'])) : ?>
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 Kamu perlu <a href="login.php" class="alert-link">Login</a> atau <a href="register.php" class="alert-link">Daftar</a> untuk bisa memilihnya.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == 1) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Kamu udah milih tempat prakerin pilihanmu loh, cek di <a href="pilihanku.php" class="alert-link">Pilihanku</a>.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -53,7 +53,7 @@
                         <label>Password</label>
                         <input type="password" required name="pass" class="form-control">
                     </div>
-                    <div class="pt-3">
+                    <div class="pt-2">
                         <a href="register.php" style="text-decoration: none;">
                             <button type="button" class="btn btn-outline-dark">Buat Akun</button>
                         </a>

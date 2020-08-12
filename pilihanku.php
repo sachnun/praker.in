@@ -42,28 +42,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Login
-                        </a>
-                    </li>
-                    <span class="navbar-text">
-                        atau
-                    </span>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Daftar
-                        </a>
-                    </li>
-
-                    <span class="navbar-text">
-                        Hi, nama kamu.
-                    </span>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Logout
-                        </a>
-                    </li>
+                    <?php include('navbar-user.php') ?>
                 </ul>
             </div>
         </div>
@@ -81,7 +60,7 @@
     <div class="jumbotron jumbotron-fluid mirai-jumbotron">
         <div class="container">
             <h1 class="display-4">Pilihanku di <b>#Praker.in</b></h1>
-            <p class="lead">sudah sesuai dengan pilihanmu? kalau begitu, selamat praker.in ya</p>
+            <p class="lead">sudah sesuai dengan pilihanmu? kalau begitu, selamat prakerin ya</p>
         </div>
     </div>
 
