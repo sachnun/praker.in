@@ -36,6 +36,10 @@
 	- ganti foto
 	- submit
 	- batalkan
+- lihat peserta
+	- kota
+	- perusahaan
+	- instansi
 - printable card
 - mengubah kata sandi
 - lupa kata sandi
