@@ -122,7 +122,7 @@
 
                         </td>
                         <td><?= $data['bagian'] ?></td>
-                        <td><?= $data['peserta'] ?> orang</td>
+                        <td>-</td>
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>

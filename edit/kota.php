@@ -43,15 +43,21 @@
         </div>
     </nav>
 
+    <?php $jumlah = $conn->query("SELECT * FROM perusahaan WHERE kota_id = {$_GET['id']}")->num_rows + $conn->query("SELECT * FROM instansi WHERE kota_id = {$_GET['id']}")->num_rows; ?>
     <?php $data = $conn->query("SELECT * FROM kota WHERE id = {$_GET['id']}")->fetch_assoc(); ?>
     <div class="container pt-4">
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Edit Kota</h1>
+                <?php if ($jumlah > 0) : ?>
+                    <div class="alert alert-warning" role="alert">
+                        Sudah terdapat <b><?= $jumlah ?></b> lokasi yang terletak dikota ini, mengubahnya dapat mempengaruhi.
+                    </div>
+                <?php endif; ?>
                 <form action="">
                     <div class="form-group">
                         <label>Nama Kota</label>
-                        <input type="email" class="form-control" value="<?= $data['nama_kota'] ?>">
+                        <input type="text" class="form-control" value="<?= $data['nama_kota'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <a href="../kota.php" style="text-decoration: none;">
