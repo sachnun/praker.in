@@ -129,7 +129,9 @@
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>
-                                    <button type="button" class="btn btn-success">Gabung yuk</button>
+                                    <a href="#" style="text-decoration: none;" onclick="return alert('maaf nih, masih belum bisa bergabung dulu ya~')">
+                                        <button type="button" class="btn btn-success">Gabung yuk</button>
+                                    </a>
                                 </div>
                             <?php elseif (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
                                 <!-- Admin -->
