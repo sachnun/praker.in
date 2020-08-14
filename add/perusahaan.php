@@ -51,7 +51,6 @@
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
                         <input type="text" name="nama_perusahaan" required class="form-control" placeholder="contoh, PT Indah Kiat Pulp & Paper">
-                        <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
                         <label>Kota</label>
@@ -61,6 +60,7 @@
                                 <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
                             <?php endforeach; ?>
                         </select>
+                        <small class="form-text text-muted">berada dikota mana instansi ini</small>
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>
@@ -70,7 +70,6 @@
                     <div class="form-group">
                         <label>Bagian</label>
                         <input type="text" name="bagian" required class="form-control" placeholder="contoh, IT Komputer">
-                        <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
                         <a href="../perusahaan.php" style="text-decoration: none;">

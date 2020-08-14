@@ -51,22 +51,18 @@
                     <div class="form-group">
                         <label>Nama Instansi</label>
                         <input type="text" name="nama_instansi" required class="form-control" placeholder="contoh, SMK Informatika Kota Serang">
-                        <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <label>Kota</label>
                                 <select class="form-control" name="kota_id" required>
-                                    <?php
-                                    foreach ($conn->query("SELECT * FROM kota") as $kota) :
-                                        if ($kota_id == $data['kota_id']) : ?>
-                                            <option value="<?= $kota['id'] ?>" selected><?= $kota['nama_kota'] ?></option>
-                                        <?php else : ?>
-                                            <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
-                                        <?php endif; ?>
+                                    <option value="" selected hidden></option>
+                                    <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
+                                        <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                                <small class="form-text text-muted">berada dikota mana instansi ini</small>
                             </div>
                             <div class="col">
                                 <label>Jenis</label>
@@ -84,19 +80,8 @@
                         <small class="form-text text-muted">lokasi instansi tempat untuk prakerin</small>
                     </div>
                     <div class="form-group">
-                        <label>Kota</label>
-                        <select class="form-control" name="kota_id" required>
-                            <option value="" selected hidden></option>
-                            <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
-                                <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <small class="form-text text-muted">berada dikota mana instansi ini</small>
-                    </div>
-                    <div class="form-group">
                         <label>Bagian</label>
                         <input type="text" name="bagian" required class="form-control" placeholder="contoh, Tata Usaha">
-                        <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
                         <a href="../instansi.php" style="text-decoration: none;">
