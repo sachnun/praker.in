@@ -64,7 +64,7 @@
                         <label>Kota</label>
                         <select class="form-control" required name="kota_id">
                             <?php
-                            foreach ($conn->query("SELECT * FROM kota") as $kota) :
+                            foreach ($conn->query("SELECT * FROM kota ORDER BY nama_kota") as $kota) :
                                 if ($kota['id'] == $data['kota_id']) : ?>
                                     <option value="<?= $kota['id'] ?>" selected><?= $kota['nama_kota'] ?></option>
                                 <?php else : ?>
