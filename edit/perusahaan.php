@@ -53,7 +53,7 @@
                         Sudah terdapat peserta yang bergabung, harap berhati-hati dalam mengubahnya.
                     </div>
                 <?php endif; ?>
-                <form action="../aksi.php?p=edit-perusahaan" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
+                <form action="../aksi.php?p=edit-perusahaan" method="POST" onsubmit="return confirm('Sudah yakin ingin mengubah data ini?')">
                     <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>

@@ -96,7 +96,7 @@
             <tbody>
                 <?php
                 $x = 1;
-                foreach ($conn->query('SELECT * FROM kota') as $data) : ?>
+                foreach ($conn->query('SELECT * FROM kota ORDER BY nama_kota') as $data) : ?>
                     <tr>
                         <th scope="row"><?= $x++ ?></th>
                         <td><?= $data['nama_kota'] ?></td>
