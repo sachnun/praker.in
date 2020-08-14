@@ -94,7 +94,7 @@
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
-                        <a href="../perusahaan.php" style="text-decoration: none;">
+                        <a href="../instansi.php" style="text-decoration: none;">
                             <button type="button" class="btn btn-dark">Batalkan</button>
                         </a>
                         <div class="float-right">
