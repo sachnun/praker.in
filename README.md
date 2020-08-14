@@ -19,6 +19,10 @@
 	- kota
 	- perusahaan
 	- instansi
+- opsi hapus
+	- kota
+	- perusahaan
+	- instansi
 - opsi perusahaan
 - opsi instansi
 - link ke google map
@@ -27,10 +31,7 @@
 
 ### Fitur yang akan datang
 
-- opsi hapus
-	- kota
-	- perusahaan
-	- instansi
+
 - page pilihanku
 	- ubah data
 	- ganti foto
