@@ -126,9 +126,11 @@
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
                                     <?php if ($jml_perusahaan < 1 and $jml_instansi < 1) : ?>
-                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                        <a href="aksi.php?p=hapus-kota&id=<?= $data['id'] ?>" onclick="return confirm('Kamu yakin ingin menghapus <?= $data['nama_kota'] ?> ?')">
+                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                        </a>
                                     <?php else : ?>
-                                        <button type="button" disabled class="btn btn-danger" title="Tidak dapat dihapus">Hapus</button>
+                                        <button type="button" disabled class="btn btn-danger" title="Tidak bisa dihapus">Hapus</button>
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>

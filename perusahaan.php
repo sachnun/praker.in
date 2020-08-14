@@ -139,9 +139,11 @@
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
                                     <?php if ($peserta < 1) : ?>
-                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                        <a href="aksi.php?p=hapus-perusahaan&id=<?= $data['id'] ?>" onclick="return confirm('Kamu yakin ingin menghapus <?= $data['nama_perusahaan'] ?> di bagian <?= $data['bagian'] ?> ?')">
+                                            <button type="button" class="btn btn-danger">Hapus</button>
+                                        </a>
                                     <?php else : ?>
-                                        <button type="button" disabled class="btn btn-danger" title="Tidak dapat dihapus">Hapus</button>
+                                        <button type="button" disabled class="btn btn-danger" title="Tidak bisa dihapus">Hapus</button>
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>

@@ -1,5 +1,11 @@
 <?php
 include_once('koneksi.php');
+
+//mencegah non-admin untuk menjalankannya
+if (empty($_SESSION['login']) and $_SESSION['akses'] !== 1) {
+    header("Location: login.php");
+}
+
 function login($email, $password)
 {
     global $conn;
@@ -116,6 +122,42 @@ function edit_instansi($id, $namaInstansi, $kotaId, $jenis, $lokasi, $bagian)
         die('terjadi masalah pada sistem saat mengubah data, coba lagi nanti ya.');
     }
 }
+function hapus_perusahaan($id)
+{
+    global $conn;
+
+    $sql = "DELETE FROM perusahaan WHERE id = {$id}";
+
+    if ($conn->query($sql) === true) {
+        header("Location: perusahaan.php");
+    } else {
+        die('terjadi masalah pada sistem saat menghapus data, coba lagi nanti ya.');
+    }
+}
+function hapus_instansi($id)
+{
+    global $conn;
+
+    $sql = "DELETE FROM instansi WHERE id = {$id}";
+
+    if ($conn->query($sql) === true) {
+        header("Location: instansi.php");
+    } else {
+        die('terjadi masalah pada sistem saat menghapus data, coba lagi nanti ya.');
+    }
+}
+function hapus_kota($id)
+{
+    global $conn;
+
+    $sql = "DELETE FROM kota WHERE id = {$id}";
+
+    if ($conn->query($sql) === true) {
+        header("Location: kota.php");
+    } else {
+        die('terjadi masalah pada sistem saat menghapus data, coba lagi nanti ya.');
+    }
+}
 
 
 switch ($_GET['p']) {
@@ -145,6 +187,15 @@ switch ($_GET['p']) {
         break;
     case 'edit-instansi':
         edit_instansi($_POST['id'], $_POST['nama_instansi'], $_POST['kota_id'], $_POST['jenis'], $_POST['lokasi'], $_POST['bagian']);
+        break;
+    case 'hapus-kota':
+        hapus_kota($_GET['id']);
+        break;
+    case 'hapus-perusahaan':
+        hapus_perusahaan($_GET['id']);
+        break;
+    case 'hapus-instansi':
+        hapus_instansi($_GET['id']);
         break;
     default:
         header('Location: index.php');
