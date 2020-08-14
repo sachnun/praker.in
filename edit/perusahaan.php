@@ -53,15 +53,16 @@
                         Sudah terdapat peserta yang bergabung, harap berhati-hati dalam mengubahnya.
                     </div>
                 <?php endif; ?>
-                <form action="">
+                <form action="../aksi.php?p=edit-perusahaan" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
+                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
-                        <input type="text" class="form-control" value="<?= $data['nama_perusahaan'] ?>">
+                        <input type="text" name="nama_perusahaan" required class="form-control" value="<?= $data['nama_perusahaan'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
                         <label>Kota</label>
-                        <select class="form-control" name="" id="">
+                        <select class="form-control" required name="kota_id">
                             <?php
                             foreach ($conn->query("SELECT * FROM kota") as $kota) :
                                 if ($kota['id'] == $data['kota_id']) : ?>
@@ -74,12 +75,12 @@
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>
-                        <textarea class="form-control" required name="alamat" rows="3"><?= $data['lokasi'] ?></textarea>
+                        <textarea class="form-control" name="lokasi" required name="alamat" rows="3"><?= $data['lokasi'] ?></textarea>
                         <small class=" form-text text-muted">lokasi lengkap perusahaan tempat untuk prakerin</small>
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" class="form-control" value="<?= $data['bagian'] ?>">
+                        <input type="text" name="bagian" required class="form-control" value="<?= $data['bagian'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>

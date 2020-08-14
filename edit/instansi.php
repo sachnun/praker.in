@@ -53,17 +53,18 @@
                         Sudah terdapat peserta yang bergabung, harap berhati-hati dalam mengubahnya.
                     </div>
                 <?php endif; ?>
-                <form action="">
+                <form action="../aksi.php?p=edit-instansi" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
+                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                     <div class="form-group">
                         <label>Nama Instansi</label>
-                        <input type="text" class="form-control" value="<?= $data['nama_instansi'] ?>">
+                        <input type="text" name="nama_instansi" required class="form-control" value="<?= $data['nama_instansi'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <label>Kota</label>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="kota_id" required>
                                     <?php
                                     foreach ($conn->query("SELECT * FROM kota") as $kota) :
                                         if ($kota['id'] == $data['kota_id']) : ?>
@@ -76,20 +77,20 @@
                             </div>
                             <div class="col">
                                 <label>Jenis</label>
-                                <input type="text" class="form-control" readonly value="<?= $data['jenis'] ?>">
+                                <input type="text" name="jenis" required class="form-control" readonly value="<?= $data['jenis'] ?>">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>
-                        <textarea class="form-control" required name="alamat" rows="3"><?= $data['lokasi'] ?></textarea>
+                        <textarea class="form-control" required name="lokasi" rows="3"><?= $data['lokasi'] ?></textarea>
                         <small class="form-text text-muted">lokasi lengkap tempat instansi untuk prakerin</small>
                     </div>
                     <div class="form-group">
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" class="form-control" value="<?= $data['bagian'] ?>">
+                        <input type="text" name="bagian" required class="form-control" value="<?= $data['bagian'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
