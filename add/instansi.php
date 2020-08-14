@@ -86,6 +86,7 @@
                     <div class="form-group">
                         <label>Kota</label>
                         <select class="form-control" name="kota_id" required>
+                            <option value="" selected hidden></option>
                             <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
                                 <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
                             <?php endforeach; ?>
