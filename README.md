@@ -6,6 +6,10 @@
 5. import <b>db/prakerin.sql</b> kedalam tabel database
 6. buka web di <b>localhost/praker.in</b>
 
+untuk akses admin gunakan akun:
+email : admin@praker.in
+pass : 12345
+
 ### Fitur yang sudah hadir
 
 - homepage
