@@ -54,10 +54,11 @@
                         Sudah terdapat <b><?= $jumlah ?></b> tempat yang terletak dikota ini, mengubahnya dapat mempengaruhi.
                     </div>
                 <?php endif; ?>
-                <form action="">
+                <form action="../aksi.php?p=edit-kota" method="POST" onsubmit="return confirm('Sudah yakin ingin mengubah data ini?')">
+                    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
                     <div class="form-group">
                         <label>Nama Kota</label>
-                        <input type="text" class="form-control" value="<?= $data['nama_kota'] ?>">
+                        <input type="text" name="nama_kota" required class="form-control" value="<?= $data['nama_kota'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <a href="../kota.php" style="text-decoration: none;">

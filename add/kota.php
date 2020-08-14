@@ -47,10 +47,10 @@
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Tambahkan Kota</h1>
-                <form action="">
+                <form action="../aksi.php?p=add-kota" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
                     <div class="form-group">
                         <label>Nama Kota</label>
-                        <input type="text" class="form-control" placeholder="contoh, Kota Serang">
+                        <input type="text" name="nama_kota" required class="form-control" placeholder="contoh, Kota Serang">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <a href="../kota.php" style="text-decoration: none;">

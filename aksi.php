@@ -41,6 +41,31 @@ function logout()
     session_destroy();
     header('Location: index.php');
 }
+function add_kota($namaKota)
+{
+    global $conn;
+
+    $sql = "INSERT INTO kota (nama_kota)
+        VALUES ('{$namaKota}')";
+
+    if ($conn->query($sql) === true) {
+        header("Location: kota.php");
+    } else {
+        die('terjadi masalah pada sistem saat menambahkan data, coba lagi nanti ya.');
+    }
+}
+function edit_kota($id, $namaKota)
+{
+    global $conn;
+
+    $sql = "UPDATE kota SET nama_kota = '{$namaKota}', update_at = now() WHERE id = {$id}";
+
+    if ($conn->query($sql) === true) {
+        header("Location: kota.php");
+    } else {
+        die('terjadi masalah pada sistem saat mengubah data, coba lagi nanti ya.');
+    }
+}
 function add_perusahaan($namaPerusahaan, $kotaId, $lokasi, $bagian)
 {
     global $conn;
@@ -51,7 +76,7 @@ function add_perusahaan($namaPerusahaan, $kotaId, $lokasi, $bagian)
     if ($conn->query($sql) === true) {
         header("Location: perusahaan.php");
     } else {
-        die('terjadi masalah pada sistem saat menambahkan, coba lagi nanti ya.');
+        die('terjadi masalah pada sistem saat menambahkan data, coba lagi nanti ya.');
     }
 }
 function edit_perusahaan($id, $namaPerusahaan, $kotaId, $lokasi, $bagian)
@@ -63,7 +88,7 @@ function edit_perusahaan($id, $namaPerusahaan, $kotaId, $lokasi, $bagian)
     if ($conn->query($sql) === true) {
         header("Location: perusahaan.php");
     } else {
-        die('terjadi masalah pada sistem saat mengubah data, coba lagi nanti ya.' . $sql);
+        die('terjadi masalah pada sistem saat mengubah data, coba lagi nanti ya.');
     }
 }
 function add_instansi($namaInstansi, $kotaId, $jenis, $lokasi, $bagian)
@@ -102,6 +127,12 @@ switch ($_GET['p']) {
         break;
     case 'logout':
         logout();
+        break;
+    case 'add-kota':
+        add_kota($_POST['nama_kota']);
+        break;
+    case 'edit-kota':
+        edit_kota($_POST['id'], $_POST['nama_kota']);
         break;
     case 'add-perusahaan':
         add_perusahaan($_POST['nama_perusahaan'], $_POST['kota_id'], $_POST['lokasi'], $_POST['bagian']);
