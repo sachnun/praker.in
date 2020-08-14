@@ -106,9 +106,9 @@
             <tbody>
                 <?php
                 if (isset($_GET['k'])) {
-                    $sql = "SELECT * FROM perusahaan WHERE kota_id = {$_GET['k']}";
+                    $sql = "SELECT * FROM perusahaan WHERE kota_id = {$_GET['k']} ORDER BY nama_perusahaan";
                 } else {
-                    $sql = "SELECT * FROM perusahaan";
+                    $sql = "SELECT * FROM perusahaan ORDER BY nama_perusahaan";
                 }
 
                 $x = 1;

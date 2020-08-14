@@ -47,19 +47,17 @@
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Tambahkan Instansi</h1>
-                <form action="">
+                <form action="../aksi.php?p=add-instansi" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
                     <div class="form-group">
                         <label>Nama Instansi</label>
-                        <input type="text" class="form-control" placeholder="contoh, SMK Informatika Kota Serang">
+                        <input type="text" name="nama_instansi" required class="form-control" placeholder="contoh, SMK Informatika Kota Serang">
                         <!-- <small class="form-text text-muted"></small> -->
-                    </div>
-                    <div class="form-group">
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
                                 <label>Kota</label>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="kota_id" required>
                                     <?php
                                     foreach ($conn->query("SELECT * FROM kota") as $kota) :
                                         if ($kota_id == $data['kota_id']) : ?>
@@ -72,7 +70,7 @@
                             </div>
                             <div class="col">
                                 <label>Jenis</label>
-                                <select class="form-control">
+                                <select class="form-control" name="jenis" required>
                                     <option value="Sekolah">Sekolah</option>
                                     <option value="Universitas">Universitas</option>
                                     <option value="Lainnya">Lainnya</option>
@@ -82,12 +80,12 @@
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>
-                        <textarea class="form-control" required name="alamat" rows="3" placeholder="contoh, Jl. KH. Amin Jasuta No.15C, Lontarbaru, Kec. Serang, Kota Serang, Banten 42115"></textarea>
+                        <textarea class="form-control" required name="lokasi" rows="3" placeholder="contoh, Jl. KH. Amin Jasuta No.15C, Lontarbaru, Kec. Serang, Kota Serang, Banten 42115"></textarea>
                         <small class="form-text text-muted">lokasi instansi tempat untuk prakerin</small>
                     </div>
                     <div class="form-group">
                         <label>Kota</label>
-                        <select class="form-control">
+                        <select class="form-control" name="kota_id" required>
                             <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
                                 <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
                             <?php endforeach; ?>
@@ -96,11 +94,11 @@
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" class="form-control" placeholder="contoh, Tata Usaha">
+                        <input type="text" name="bagian" required class="form-control" placeholder="contoh, Tata Usaha">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
-                        <a href="../perusahaan.php" style="text-decoration: none;">
+                        <a href="../instansi.php" style="text-decoration: none;">
                             <button type="button" class="btn btn-dark">Batalkan</button>
                         </a>
                         <div class="float-right">

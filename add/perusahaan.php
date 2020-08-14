@@ -47,15 +47,15 @@
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Tambahkan Perusahaan</h1>
-                <form action="">
+                <form action="../aksi.php?p=add-perusahaan" method="POST" onsubmit="return confirm('Sudah yakin ingin menambahkan data ini?')">
                     <div class="form-group">
                         <label>Nama Perusahaan</label>
-                        <input type="text" class="form-control" placeholder="contoh, PT Indah Kiat Pulp & Paper">
+                        <input type="text" name="nama_perusahaan" required class="form-control" placeholder="contoh, PT Indah Kiat Pulp & Paper">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
                         <label>Kota</label>
-                        <select class="form-control" name="" id="">
+                        <select class="form-control" required name="kota_id">
                             <?php foreach ($conn->query("SELECT * FROM kota") as $kota) : ?>
                                 <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
                             <?php endforeach; ?>
@@ -63,12 +63,12 @@
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>
-                        <textarea class="form-control" required name="alamat" rows="3" placeholder="contoh, Jl. Raya Serang - Jkt, Kragilan, Kec. Kragilan, Serang, Banten 42184"></textarea>
+                        <textarea class="form-control" required name="lokasi" rows="3" placeholder="contoh, Jl. Raya Serang - Jkt, Kragilan, Kec. Kragilan, Serang, Banten 42184"></textarea>
                         <small class="form-text text-muted">alamat lengkap perusahaan tempat untuk prakerin</small>
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>
-                        <input type="text" class="form-control" placeholder="contoh, IT Komputer">
+                        <input type="text" name="bagian" required class="form-control" placeholder="contoh, IT Komputer">
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div>
