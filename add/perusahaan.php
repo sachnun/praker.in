@@ -54,18 +54,17 @@
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
-                        <label>Alamat</label>
-                        <textarea class="form-control" required name="alamat" rows="3" placeholder="contoh, Jl. Raya Serang - Jkt, Kragilan, Kec. Kragilan, Serang, Banten 42184"></textarea>
-                        <small class="form-text text-muted">alamat lengkap perusahaan tempat untuk prakerin</small>
-                    </div>
-                    <div class="form-group">
                         <label>Kota</label>
-                        <select class="form-control">
-                            <?php foreach ($conn->query("SELECT id, nama_kota FROM kota") as $data) : ?>
-                                <option value="<?= $data['id'] ?>"><?= $data['nama_kota'] ?></option>
+                        <select class="form-control" name="" id="">
+                            <?php foreach ($conn->query("SELECT * FROM kota") as $kota) : ?>
+                                <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <small class="form-text text-muted">berada dikota mana perusahaan ini</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Lokasi</label>
+                        <textarea class="form-control" required name="alamat" rows="3" placeholder="contoh, Jl. Raya Serang - Jkt, Kragilan, Kec. Kragilan, Serang, Banten 42184"></textarea>
+                        <small class="form-text text-muted">alamat lengkap perusahaan tempat untuk prakerin</small>
                     </div>
                     <div class="form-group">
                         <label>Bagian</label>

@@ -54,13 +54,31 @@
                         <!-- <small class="form-text text-muted"></small> -->
                     </div>
                     <div class="form-group">
-                        <label>Jenis</label>
-                        <select class="form-control">
-                            <option value="Sekolah">Sekolah</option>
-                            <option value="Universitas">Universitas</option>
-                            <option value="Lainnya">Lainnya</option>
-                        </select>
-                        <!-- <small class="form-text text-muted"></small> -->
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label>Kota</label>
+                                <select class="form-control" name="" id="">
+                                    <?php
+                                    foreach ($conn->query("SELECT * FROM kota") as $kota) :
+                                        if ($kota_id == $data['kota_id']) : ?>
+                                            <option value="<?= $kota['id'] ?>" selected><?= $kota['nama_kota'] ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Jenis</label>
+                                <select class="form-control">
+                                    <option value="Sekolah">Sekolah</option>
+                                    <option value="Universitas">Universitas</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>

@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-8">
                 <h1 class="mb-4">Edit Perusahaan</h1>
-                <?php if ($data['peserta'] > 0) : ?>
+                <?php if ($conn->query("SELECT id FROM akun WHERE perusahaan = {$data['id']} AND pilih = 1")->num_rows > 0) : ?>
                     <div class="alert alert-warning" role="alert">
                         Sudah terdapat peserta yang bergabung, harap berhati-hati dalam mengubahnya.
                     </div>
@@ -58,6 +58,19 @@
                         <label>Nama Perusahaan</label>
                         <input type="text" class="form-control" value="<?= $data['nama_perusahaan'] ?>">
                         <!-- <small class="form-text text-muted"></small> -->
+                    </div>
+                    <div class="form-group">
+                        <label>Kota</label>
+                        <select class="form-control" name="" id="">
+                            <?php
+                            foreach ($conn->query("SELECT * FROM kota") as $kota) :
+                                if ($kota['id'] == $data['kota_id']) : ?>
+                                    <option value="<?= $kota['id'] ?>" selected><?= $kota['nama_kota'] ?></option>
+                                <?php else : ?>
+                                    <option value="<?= $kota['id'] ?>"><?= $kota['nama_kota'] ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Lokasi</label>

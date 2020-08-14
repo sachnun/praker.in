@@ -51,7 +51,7 @@
                 <h1 class="mb-4">Edit Kota</h1>
                 <?php if ($jumlah > 0) : ?>
                     <div class="alert alert-warning" role="alert">
-                        Sudah terdapat <b><?= $jumlah ?></b> lokasi yang terletak dikota ini, mengubahnya dapat mempengaruhi.
+                        Sudah terdapat <b><?= $jumlah ?></b> tempat yang terletak dikota ini, mengubahnya dapat mempengaruhi.
                     </div>
                 <?php endif; ?>
                 <form action="">

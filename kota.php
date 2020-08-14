@@ -101,14 +101,14 @@
                         <th scope="row"><?= $x++ ?></th>
                         <td><?= $data['nama_kota'] ?></td>
                         <td>
-                            <?php $d = $conn->query("SELECT id FROM perusahaan WHERE kota_id = {$data['id']}")->num_rows; ?>
-                            <?= $d; ?> tempat
+                            <?= $jml_perusahaan = $conn->query("SELECT id FROM perusahaan WHERE kota_id = {$data['id']}")->num_rows ?> tempat
                         </td>
                         <td>
-                            <?php $d = $conn->query("SELECT id FROM instansi WHERE kota_id = {$data['id']}")->num_rows; ?>
-                            <?= $d; ?> tempat
+                            <?= $jml_instansi = $conn->query("SELECT id FROM instansi WHERE kota_id = {$data['id']}")->num_rows ?> tempat
                         </td>
-                        <td>-</td>
+                        <td class="text-cnter">
+                            -
+                        </td>
                         <td>
                             <?php if (empty($_SESSION['login']) or $_SESSION['akses'] != 1) : ?>
                                 <div>
@@ -125,7 +125,11 @@
                                     <a href="edit/kota.php?id=<?= $data['id'] ?>" style="text-decoration: none;">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
-                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                    <?php if ($jml_perusahaan < 1 and $jml_instansi < 1) : ?>
+                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                    <?php else : ?>
+                                        <button type="button" disabled class="btn btn-danger" title="Tidak dapat dihapus">Hapus</button>
+                                    <?php endif; ?>
                                 </div>
                             <?php endif; ?>
                         </td>

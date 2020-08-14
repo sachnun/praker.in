@@ -94,12 +94,14 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col" style="width: 200px;">Nama Instansi</th>
+                    <th scope="col">Nama Instansi</th>
                     <th scope="col">Jenis</th>
-                    <th scope="col" style="width: 360px;">Lokasi</th>
-                    <th scope="col">Bagian</th>
+                    <th scope="col">Lokasi</th>
+                    <th scope="col" style="width: 150px;">Bagian</th>
                     <th scope="col">Peserta</th>
-                    <th scope="col"></th>
+                    <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == false) : ?>
+                        <th scope="col" style="min-width: 200px;"></th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
@@ -123,7 +125,7 @@
                             </a>
                         </td>
                         <td><?= $data['bagian'] ?></td>
-                        <td>-</td>
+                        <td class="text-center"><?= $peserta = $conn->query("SELECT id FROM akun WHERE instansi = {$data['id']} AND pilih = 1")->num_rows ?></td>
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>
@@ -135,7 +137,11 @@
                                     <a href="edit/instansi.php?id=<?= $data['id'] ?>" style="text-decoration: none;">
                                         <button type="button" class="btn btn-primary">Edit</button>
                                     </a>
-                                    <button type="button" class="btn btn-danger">Hapus</button>
+                                    <?php if ($peserta < 1) : ?>
+                                        <button type="button" class="btn btn-danger">Hapus</button>
+                                    <?php else : ?>
+                                        <button type="button" disabled class="btn btn-danger" title="Tidak dapat dihapus">Hapus</button>
+                                    <?php endif; ?>
                                 </div>
                             <?php endif; ?>
                         </td>
