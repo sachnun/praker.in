@@ -53,7 +53,7 @@
 
     <style>
         .mirai-jumbotron {
-            background-image: url('https://images6.alphacoders.com/726/thumb-1920-726320.png');
+            background-image: url('img/kuriyama.png');
             background-position: right;
             background-size: 500px auto;
             background-repeat: no-repeat;
