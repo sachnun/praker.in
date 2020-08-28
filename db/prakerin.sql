@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Agu 2020 pada 16.19
+-- Waktu pembuatan: 28 Agu 2020 pada 13.07
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -37,6 +37,7 @@ CREATE TABLE `akun` (
   `alamat` text NOT NULL,
   `perusahaan` int(11) DEFAULT NULL,
   `instansi` int(11) DEFAULT NULL,
+  `no_peserta` varchar(225) DEFAULT NULL,
   `pilih` tinyint(1) NOT NULL DEFAULT 0,
   `akses` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -45,10 +46,10 @@ CREATE TABLE `akun` (
 -- Dumping data untuk tabel `akun`
 --
 
-INSERT INTO `akun` (`id`, `nama`, `email`, `pass`, `sekolah`, `kartu_pelajar`, `alamat`, `perusahaan`, `instansi`, `pilih`, `akses`) VALUES
-(2, 'Mirai Kuriyama', 'admin@praker.in', '12345', '-', '-', 'mars', NULL, NULL, 0, 1),
-(4, 'Ucup', '88999@er0m.ui', '12345', 'SMK Pandeglang 7', '3242323', 'awawdaww', 1, NULL, 1, 0),
-(5, 'Jidan', 'jidan@waifu.id', '12345', 'SMK Informatika Kota Serang', '973912032', 'Tj. Harapan, Kabupaten Paser, Kalimantan Timur\r\n', NULL, NULL, 0, 0);
+INSERT INTO `akun` (`id`, `nama`, `email`, `pass`, `sekolah`, `kartu_pelajar`, `alamat`, `perusahaan`, `instansi`, `no_peserta`, `pilih`, `akses`) VALUES
+(2, 'Mirai Kuriyama', 'admin@praker.in', '12345', '-', '-', 'mars', NULL, NULL, NULL, 0, 1),
+(4, 'Ucup', '88999@er0m.ui', '12345', 'SMK Pandeglang 7', '3242323', 'Jalan Raya Serang Km. 1,5 Rt. 04/10 Cikondang-Pandeglang Kode Pos : 42213 Cikondang Kel/Kec, Pandeglang, Kec. Pandeglang, Kabupaten Pandeglang, Banten 42213', NULL, 9, 'PKRIN-4-778-187-658-374-GO', 1, 0),
+(5, 'Jidan', 'jidan@waifu.id', '12345', 'SMK Informatika Kota Serang', '973912032', 'Tj. Harapan, Kabupaten Paser, Kalimantan Timur\r\n', NULL, 10, 'PKRIN-5-840-430-666-749-GO', 2, 0);
 
 -- --------------------------------------------------------
 
