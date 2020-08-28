@@ -67,7 +67,13 @@
 
     <?php $data = $conn->query("SELECT * FROM akun WHERE id = {$_SESSION['id']}")->fetch_assoc(); ?>
     <div class="container" id="kota">
-        <div class="row">
+        <?php if ($_SESSION['pilih'] == 2) : ?>
+            <div class="alert alert-info" role="alert">
+                Yey, udah jadi nih, jangan lupa di <b>print</b> ya, lalu tunjukan saat kamu sudah di lokasi perusahaan/instansi tersebut.
+            </div>
+            <hr>
+        <?php endif; ?>
+        <div class="row" id="section-to-print">
             <div class="col-3">
                 <img src="img/profile/default.jpg" class="img-fluid"><br>
                 <?php if ($_SESSION['pilih'] != 2) : ?>
@@ -120,7 +126,7 @@
                     <b>Lokasi</b><br>
                     <span style="font-size: 20px;"><?= $data_pilihan['lokasi'] ?></span>
                 </div>
-                <div class="pb-4">
+                <div class="pb-2">
                     <b>Nomor Peserta</b><br>
                     <span style="font-size: 20px;color: blue;"><b><?= $data['no_peserta'] ?></b></span>
                 </div>
@@ -129,12 +135,30 @@
         <hr>
         <div>
             <?php if ($_SESSION['pilih'] == 2) : ?>
+                <style>
+                    @media print {
+                        body * {
+                            visibility: hidden;
+                        }
+
+                        #section-to-print,
+                        #section-to-print * {
+                            visibility: visible;
+                        }
+
+                        #section-to-print {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                    }
+                </style>
                 <div class="float-right mb-4">
-                    <button type="button" class="btn btn-info" style="min-width: 80px;">Print</button>
+                    <button type="button" class="btn btn-info" onclick="print();" style="min-width: 80px;">Print</button>
                 </div>
             <?php elseif ($_SESSION['pilih'] == 1) : ?>
                 <div class="float-right">
-                    <a href="aksi.php?p=submit-pilihanku" style="text-decoration: none;" onclick="return confirm('Apakah kamu sudah sangat yakin ini pilihanmu dan dipastikan juga data profile kamu sudah benar?\nsetelah submit kamu tidak bisa membatalkan dan mengubahnya lagi')">
+                    <a href="aksi.php?p=submit-pilihanku" style="text-decoration: none;" onclick="return confirm('Apakah kamu sudah sangat yakin ini pilihanmu dan dipastikan juga data profile kamu sudah benar?')">
                         <button type="button" class="btn btn-primary">Submit</button>
                     </a>
                     <a href="aksi.php?p=batalkan-pilihanku" onclick="return confirm('Kamu yakin ingin membalkan pilihanmu sekarang ini?')">
@@ -148,14 +172,14 @@
                 </div>
             <?php endif; ?>
         </div>
+    </div>
 
 
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="js/jquery-3.5.1.slim.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
