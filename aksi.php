@@ -14,6 +14,7 @@ function login($email, $password)
         $data = $conn->query("SELECT * FROM akun WHERE email = '{$email}'")->fetch_assoc();
         // berhasil login
         $_SESSION['login'] = true;
+        $_SESSION['id'] = $data['id'];
         $_SESSION['nama'] = $data['nama'];
         $_SESSION['pilih'] = $data['pilih'];
         $_SESSION['akses'] = $data['akses'];
