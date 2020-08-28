@@ -68,12 +68,10 @@
     </div>
 
     <div class="container" id="kota">
-        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == 1) : ?>
+        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] != 0) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Kamu udah milih tempat prakerin pilihanmu loh, cek di <a href="pilihanku.php" class="alert-link">Pilihanku</a>.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+
             </div>
         <?php endif; ?>
         <?php if (isset($_SESSION['login']) and $_SESSION['akses'] == 1) : ?>
@@ -145,7 +143,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

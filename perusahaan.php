@@ -38,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="instansi.php">Instansi</a>
                     </li>
-                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == true) : ?>
+                    <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] != 0) : ?>
                         <li class="nav-item">
                             <a class="nav-link" href="pilihanku.php">Pilihanku</a>
                         </li>
@@ -76,7 +76,7 @@
                 </button>
             </div>
         <?php endif; ?>
-        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == 1) : ?>
+        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] != 0) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Kamu udah milih tempat prakerin pilihanmu loh, cek di <a href="pilihanku.php" class="alert-link">Pilihanku</a>.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -158,7 +158,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -70,7 +70,9 @@
         <div class="row">
             <div class="col-3">
                 <img src="img/profile/default.jpg" class="img-fluid"><br>
-                <small>*maaf, foto profile belum tersedia.</small>
+                <?php if ($_SESSION['pilih'] != 2) : ?>
+                    <small>*maaf, foto profile belum tersedia.</small>
+                <?php endif; ?>
             </div>
             <div class="col">
                 <div class="pb-4">
@@ -125,19 +127,25 @@
             </div>
         </div>
         <hr>
-        <div class="mb-4">
+        <div>
             <?php if ($_SESSION['pilih'] == 2) : ?>
-                <div class="float-right">
+                <div class="float-right mb-4">
                     <button type="button" class="btn btn-info" style="min-width: 80px;">Print</button>
                 </div>
             <?php elseif ($_SESSION['pilih'] == 1) : ?>
                 <div class="float-right">
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <a href="aksi.php?p=submit-pilihanku" style="text-decoration: none;" onclick="return confirm('Apakah kamu sudah sangat yakin ini pilihanmu dan dipastikan juga data profile kamu sudah benar?\nsetelah submit kamu tidak bisa membatalkan dan mengubahnya lagi')">
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </a>
                     <a href="aksi.php?p=batalkan-pilihanku" onclick="return confirm('Kamu yakin ingin membalkan pilihanmu sekarang ini?')">
                         <button type="button" class="btn btn-secondary">Batalkan</button>
                     </a>
                 </div>
-                <button type="button" class="btn btn-warning text-white">Ubah data</button>
+                <div class="mb-4">
+                    <a href="#" onclick="return alert('maaf ya, kamu belum bisa ubah data untuk saat ini~')">
+                        <button type="button" class="btn btn-warning text-white">Ubah data</button>
+                    </a>
+                </div>
             <?php endif; ?>
         </div>
 
@@ -147,7 +155,7 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.5.1.slim.min.js"></script>
         <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

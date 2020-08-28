@@ -171,6 +171,18 @@ function batal_pilihanku($id)
         die('terjadi masalah pada sistem saat membatalkan, coba lagi nanti ya.');
     }
 }
+function submit_pilihanku($id)
+{
+    global $conn;
+
+    $sql = "UPDATE akun SET pilih = 2 WHERE id = $id";
+    if ($conn->query($sql) === true) {
+        $_SESSION['pilih'] = 2;
+        header("Location: pilihanku.php");
+    } else {
+        die('terjadi masalah pada sistem saat submit data, coba lagi nanti ya.');
+    }
+}
 function gabung_perusahaan($id, $id_perusahaan)
 {
     global $conn;
@@ -246,6 +258,9 @@ switch ($_GET['p']) {
         break;
     case 'batalkan-pilihanku':
         batal_pilihanku($_SESSION['id']);
+        break;
+    case 'submit-pilihanku':
+        submit_pilihanku($_SESSION['id']);
         break;
     case 'gabung-perusahaan':
         gabung_perusahaan($_SESSION['id'], $_GET['id']);

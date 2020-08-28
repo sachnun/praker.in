@@ -68,7 +68,7 @@
     </div>
 
     <div class="container" id="instansi">
-        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] == 1) : ?>
+        <?php if (isset($_SESSION['login']) and $_SESSION['pilih'] != 0) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Kamu udah milih tempat prakerin pilihanmu loh, cek di <a href="pilihanku.php" class="alert-link">Pilihanku</a>.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -127,7 +127,7 @@
                         <td><?= $data['bagian'] ?></td>
                         <td><?= $peserta = $conn->query("SELECT id FROM akun WHERE instansi = {$data['id']} AND pilih = 1")->num_rows ?></td>
                         <td>
-                            <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
+                            <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == 0) : ?>
                                 <div>
                                     <a href="aksi.php?p=gabung-instansi&id=<?= $data['id'] ?>" style="text-decoration: none;" onclick="return confirm('Kamu yakin ingin bergabung menjadi peserta prakerin di <?= $data['nama_instansi'] ?> untuk bagian <?= $data['bagian'] ?> ?')">
                                         <button type="button" class="btn btn-success">Gabung yuk</button>
@@ -159,7 +159,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.5.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
