@@ -1,3 +1,4 @@
+<?php include_once('koneksi.php') ?>
 <!doctype html>
 <html lang="en">
 
@@ -64,22 +65,87 @@
         </div>
     </div>
 
+    <?php $data = $conn->query("SELECT * FROM akun WHERE id = {$_SESSION['id']}")->fetch_assoc(); ?>
     <div class="container" id="kota">
         <div class="row">
             <div class="col-3">
-                <img src="https://www.jennstrends.com/wp-content/uploads/2013/10/bad-profile-pic-2-768x768.jpeg" class="img-fluid" alt="Responsive image">
+                <img src="img/profile/default.jpg" class="img-fluid"><br>
+                <small>*maaf, foto profile belum tersedia.</small>
             </div>
             <div class="col">
-                2 of 3 (wider)
+                <div class="pb-4">
+                    <b>Nama</b><br>
+                    <span style="font-size: 20px;"><?= $data['nama'] ?></span>
+                </div>
+                <div class="row pb-4">
+                    <div class="col">
+                        <b>Sekolah</b><br>
+                        <span style="font-size: 20px;"><?= $data['sekolah'] ?></span>
+                    </div>
+                    <div class="col">
+                        <b>Kartu Pelajar</b><br>
+                        <span style="font-size: 20px;"><?= $data['kartu_pelajar'] ?></span>
+                    </div>
+                </div>
+                <div class="pb-4">
+                    <b>Alamat Tinggal</b><br>
+                    <span style="font-size: 20px;"><?= $data['alamat'] ?></span>
+                </div>
+                <?php
+                if ($data['perusahaan'] != null) {
+                    $sql = "SELECT * FROM perusahaan WHERE id = {$data['perusahaan']}";
+                } else {
+                    $sql = "SELECT * FROM instansi WHERE id = {$data['perusahaan']}";
+                }
+                $data_pilihan = $conn->query($sql)->fetch_assoc();
+                ?>
+                <div class="row pb-4">
+                    <div class="col">
+                        <?php if ($data['perusahaan'] != null) : ?>
+                            <b>Perusahaan</b><br>
+                            <span style="font-size: 20px;"><?= $data_pilihan['nama_perusahaan'] ?></span>
+                        <?php else : ?>
+                            <b>Instansi</b><br>
+                            <span><?= $data_pilihan['nama_instansi'] ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col">
+                        <b>Bagian</b><br>
+                        <span style="font-size: 20px;"><?= $data_pilihan['bagian'] ?></span>
+                    </div>
+                </div>
+                <div class="pb-4">
+                    <b>Lokasi</b><br>
+                    <span style="font-size: 20px;"><?= $data_pilihan['lokasi'] ?></span>
+                </div>
+                <div class="pb-4">
+                    <b>Nomor Peserta</b><br>
+                    <span style="font-size: 20px;color: blue;"><b><?= $data['no_peserta'] ?></b></span>
+                </div>
             </div>
         </div>
-    </div>
+        <hr>
+        <div class="mb-4">
+            <?php if ($_SESSION['pilih'] == 2) : ?>
+                <div class="float-right">
+                    <button type="button" class="btn btn-info" style="min-width: 80px;">Print</button>
+                </div>
+            <?php elseif ($_SESSION['pilih'] == 1) : ?>
+                <div class="float-right">
+                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary">Batalkan</button>
+                </div>
+                <button type="button" class="btn btn-warning text-white">Ubah data</button>
+            <?php endif; ?>
+        </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.5.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.jsbootstrap.min.js"></script>
 </body>
 
 </html>
