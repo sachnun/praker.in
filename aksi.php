@@ -159,7 +159,53 @@ function hapus_kota($id)
         die('terjadi masalah pada sistem saat menghapus data, coba lagi nanti ya.');
     }
 }
+function batal_pilihanku($id)
+{
+    global $conn;
 
+    $sql = "UPDATE akun SET perusahaan = NULL, instansi = NULL, no_peserta = NULL, pilih = 0 WHERE id = $id";
+    if ($conn->query($sql) === true) {
+        $_SESSION['pilih'] = 0;
+        header("Location: kota.php");
+    } else {
+        die('terjadi masalah pada sistem saat membatalkan, coba lagi nanti ya.');
+    }
+}
+function gabung_perusahaan($id, $id_perusahaan)
+{
+    global $conn;
+
+    // fungsi ini masih sementara :p
+    $nomor_peserta = nomor_peserta("PKRIN", "GO", $id);
+
+    $sql = "UPDATE akun SET perusahaan = $id_perusahaan, no_peserta = '$nomor_peserta', pilih = 1 WHERE id = $id";
+    if ($conn->query($sql) === true) {
+        $_SESSION['pilih'] = 1;
+        header("Location: pilihanku.php");
+    } else {
+        die('terjadi masalah pada sistem saat bergabung, coba lagi nanti ya.');
+    }
+}
+function gabung_instansi($id, $id_instansi)
+{
+    global $conn;
+
+    // fungsi ini masih sementara :p
+    $nomor_peserta = nomor_peserta("PKRIN", "GO", $id);
+
+    $sql = "UPDATE akun SET instansi = $id_instansi, no_peserta = '$nomor_peserta', pilih = 1 WHERE id = $id";
+    if ($conn->query($sql) === true) {
+        $_SESSION['pilih'] = 1;
+        header("Location: pilihanku.php");
+    } else {
+        die('terjadi masalah pada sistem saat bergabung, coba lagi nanti ya.');
+    }
+}
+function nomor_peserta($depan, $belakang, $id)
+{
+    $random = round(rand(100, 999)) . round(rand(100, 999)) . round(rand(100, 999)) . round(rand(100, 999));
+    return $depan . "-" . $id . "-" . number_format($random, 0, ',', '-') . "-" . $belakang;
+}
 
 switch ($_GET['p']) {
     case 'login':
@@ -197,6 +243,18 @@ switch ($_GET['p']) {
         break;
     case 'hapus-instansi':
         hapus_instansi($_GET['id']);
+        break;
+    case 'batalkan-pilihanku':
+        batal_pilihanku($_SESSION['id']);
+        break;
+    case 'gabung-perusahaan':
+        gabung_perusahaan($_SESSION['id'], $_GET['id']);
+        break;
+    case 'gabung-instansi':
+        gabung_instansi($_SESSION['id'], $_GET['id']);
+        break;
+    case 'gabung-instansi':
+        gabung_instansi($_SESSION['id'], $_GET['id']);
         break;
     default:
         header('Location: index.php');

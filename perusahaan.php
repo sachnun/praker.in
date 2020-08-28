@@ -128,7 +128,7 @@
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == false) : ?>
                                 <div>
-                                    <a href="#" style="text-decoration: none;" onclick="return alert('maaf nih, masih belum bisa bergabung dulu ya~')">
+                                    <a href="aksi.php?p=gabung-perusahaan&id=<?= $data['id'] ?>" style="text-decoration: none;" onclick="return confirm('Kamu yakin ingin bergabung menjadi peserta prakerin di <?= $data['nama_perusahaan'] ?> untuk bagian <?= $data['bagian'] ?> ?')">
                                         <button type="button" class="btn btn-success">Gabung yuk</button>
                                     </a>
                                 </div>

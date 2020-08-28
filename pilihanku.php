@@ -95,7 +95,7 @@
                 if ($data['perusahaan'] != null) {
                     $sql = "SELECT * FROM perusahaan WHERE id = {$data['perusahaan']}";
                 } else {
-                    $sql = "SELECT * FROM instansi WHERE id = {$data['perusahaan']}";
+                    $sql = "SELECT * FROM instansi WHERE id = {$data['instansi']}";
                 }
                 $data_pilihan = $conn->query($sql)->fetch_assoc();
                 ?>
@@ -106,7 +106,7 @@
                             <span style="font-size: 20px;"><?= $data_pilihan['nama_perusahaan'] ?></span>
                         <?php else : ?>
                             <b>Instansi</b><br>
-                            <span><?= $data_pilihan['nama_instansi'] ?></span>
+                            <span style="font-size: 20px;"><?= $data_pilihan['nama_instansi'] ?></span>
                         <?php endif; ?>
                     </div>
                     <div class="col">
@@ -133,7 +133,9 @@
             <?php elseif ($_SESSION['pilih'] == 1) : ?>
                 <div class="float-right">
                     <button type="button" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary">Batalkan</button>
+                    <a href="aksi.php?p=batalkan-pilihanku" onclick="return confirm('Kamu yakin ingin membalkan pilihanmu sekarang ini?')">
+                        <button type="button" class="btn btn-secondary">Batalkan</button>
+                    </a>
                 </div>
                 <button type="button" class="btn btn-warning text-white">Ubah data</button>
             <?php endif; ?>
