@@ -125,7 +125,7 @@
                             </a>
                         </td>
                         <td><?= $data['bagian'] ?></td>
-                        <td><?= $peserta = $conn->query("SELECT id FROM akun WHERE instansi = {$data['id']} AND pilih = 1")->num_rows ?></td>
+                        <td><?= $peserta = $conn->query("SELECT id FROM akun WHERE instansi = {$data['id']} AND (pilih = 1 OR pilih = 2)")->num_rows ?></td>
                         <td>
                             <?php if (isset($_SESSION['login']) and $_SESSION['akses'] != 1 and $_SESSION['pilih'] == 0) : ?>
                                 <div>
