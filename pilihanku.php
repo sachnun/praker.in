@@ -166,9 +166,10 @@
                     </a>
                 </div>
                 <div class="mb-4">
-                    <!-- <a href="#" onclick="return alert('maaf ya, kamu belum bisa ubah data untuk saat ini~')">
+                    <a href="#" style="visibility: hidden;" onclick="return alert('maaf ya, kamu belum bisa ubah data untuk saat ini~')">
                         <button type="button" class="btn btn-warning text-white">Ubah data</button>
-                    </a> -->
+                    </a>
+
                 </div>
             <?php endif; ?>
         </div>
