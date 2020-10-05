@@ -169,7 +169,6 @@
                     <a href="#" style="visibility: hidden;" onclick="return alert('maaf ya, kamu belum bisa ubah data untuk saat ini~')">
                         <button type="button" class="btn btn-warning text-white">Ubah data</button>
                     </a>
-
                 </div>
             <?php endif; ?>
         </div>
