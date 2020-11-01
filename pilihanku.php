@@ -73,62 +73,67 @@
             </div>
             <hr>
         <?php endif; ?>
-        <div class="row" id="section-to-print">
-            <div class="col-3">
-                <img src="img/profile/default.jpg" class="img-fluid"><br>
-                <?php if ($_SESSION['pilih'] != 2) : ?>
-                    <small>*maaf, foto profile belum tersedia.</small>
-                <?php endif; ?>
+        <div id="section-to-print">
+            <div id="kap" style="visibility: hidden; height: 0px;">
+                <img src="img/kap-logo.png">
             </div>
-            <div class="col">
-                <div class="pb-4">
-                    <b>Nama</b><br>
-                    <span style="font-size: 20px;"><?= $data['nama'] ?></span>
+            <div class="row kap-jarak">
+                <div class="col-3">
+                    <img src="img/profile/default.jpg" class="img-fluid"><br>
+                    <?php if ($_SESSION['pilih'] != 2) : ?>
+                        <small>*maaf, foto profile belum tersedia.</small>
+                    <?php endif; ?>
                 </div>
-                <div class="row pb-4">
-                    <div class="col">
-                        <b>Sekolah</b><br>
-                        <span style="font-size: 20px;"><?= $data['sekolah'] ?></span>
+                <div class="col">
+                    <div class="pb-4">
+                        <b>Nama</b><br>
+                        <span style="font-size: 20px;"><?= $data['nama'] ?></span>
                     </div>
-                    <div class="col">
-                        <b>Kartu Pelajar</b><br>
-                        <span style="font-size: 20px;"><?= $data['kartu_pelajar'] ?></span>
+                    <div class="row pb-4">
+                        <div class="col">
+                            <b>Sekolah</b><br>
+                            <span style="font-size: 20px;"><?= $data['sekolah'] ?></span>
+                        </div>
+                        <div class="col">
+                            <b>Kartu Pelajar</b><br>
+                            <span style="font-size: 20px;"><?= $data['kartu_pelajar'] ?></span>
+                        </div>
                     </div>
-                </div>
-                <div class="pb-4">
-                    <b>Alamat Tinggal</b><br>
-                    <span style="font-size: 20px;"><?= $data['alamat'] ?></span>
-                </div>
-                <?php
-                if ($data['perusahaan'] != null) {
-                    $sql = "SELECT * FROM perusahaan WHERE id = {$data['perusahaan']}";
-                } else {
-                    $sql = "SELECT * FROM instansi WHERE id = {$data['instansi']}";
-                }
-                $data_pilihan = $conn->query($sql)->fetch_assoc();
-                ?>
-                <div class="row pb-4">
-                    <div class="col">
-                        <?php if ($data['perusahaan'] != null) : ?>
-                            <b>Perusahaan</b><br>
-                            <span style="font-size: 20px;"><?= $data_pilihan['nama_perusahaan'] ?></span>
-                        <?php else : ?>
-                            <b>Instansi</b><br>
-                            <span style="font-size: 20px;"><?= $data_pilihan['nama_instansi'] ?></span>
-                        <?php endif; ?>
+                    <div class="pb-4">
+                        <b>Alamat Tinggal</b><br>
+                        <span style="font-size: 20px;"><?= $data['alamat'] ?></span>
                     </div>
-                    <div class="col">
-                        <b>Bagian</b><br>
-                        <span style="font-size: 20px;"><?= $data_pilihan['bagian'] ?></span>
+                    <?php
+                    if ($data['perusahaan'] != null) {
+                        $sql = "SELECT * FROM perusahaan WHERE id = {$data['perusahaan']}";
+                    } else {
+                        $sql = "SELECT * FROM instansi WHERE id = {$data['instansi']}";
+                    }
+                    $data_pilihan = $conn->query($sql)->fetch_assoc();
+                    ?>
+                    <div class="row pb-4">
+                        <div class="col">
+                            <?php if ($data['perusahaan'] != null) : ?>
+                                <b>Perusahaan</b><br>
+                                <span style="font-size: 20px;"><?= $data_pilihan['nama_perusahaan'] ?></span>
+                            <?php else : ?>
+                                <b>Instansi</b><br>
+                                <span style="font-size: 20px;"><?= $data_pilihan['nama_instansi'] ?></span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="col">
+                            <b>Bagian</b><br>
+                            <span style="font-size: 20px;"><?= $data_pilihan['bagian'] ?></span>
+                        </div>
                     </div>
-                </div>
-                <div class="pb-4">
-                    <b>Lokasi</b><br>
-                    <span style="font-size: 20px;"><?= $data_pilihan['lokasi'] ?></span>
-                </div>
-                <div class="pb-2">
-                    <b>Nomor Peserta</b><br>
-                    <span style="font-size: 20px;color: blue;"><b><?= $data['no_peserta'] ?></b></span>
+                    <div class="pb-4">
+                        <b>Lokasi</b><br>
+                        <span style="font-size: 20px;"><?= $data_pilihan['lokasi'] ?></span>
+                    </div>
+                    <div class="pb-2">
+                        <b>Nomor Peserta</b><br>
+                        <span style="font-size: 20px;color: blue;"><b><?= $data['no_peserta'] ?></b></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,6 +142,7 @@
             <?php if ($_SESSION['pilih'] == 2) : ?>
                 <style>
                     @media print {
+
                         body * {
                             visibility: hidden;
                         }
@@ -150,6 +156,14 @@
                             position: absolute;
                             left: 0;
                             top: 0;
+                        }
+
+                        #kap {
+                            height: 250px;
+                        }
+
+                        #section-to-print div.kap-jarak {
+                            padding-top: 250px;
                         }
                     }
                 </style>
@@ -173,6 +187,7 @@
             <?php endif; ?>
         </div>
     </div>
+
 
 
     <!-- Optional JavaScript -->
